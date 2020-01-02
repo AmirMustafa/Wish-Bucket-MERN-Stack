@@ -1,0 +1,14 @@
+body {
+  background: skyblue;
+  text-align: center;
+  color: #fff;
+}
+
+li {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+li:hover {
+  text-decoration: line-through;
+}

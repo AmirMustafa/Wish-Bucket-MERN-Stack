@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>Client</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+  </head>
+  <body>
+    <%- include('partials/nav'); %>
+    <h2>This is my home page.</h2>
+
+    <form id="myForm">
+            <input type="text" name="item" />
+            <button type="submit">Add</button>
+    </form>
+    
+    <div class="collection">
+        <ul>
+            <% wish.forEach(item => { %>
+                <li><span onclick="deleteMe(this)"><%= item.wish %></span></li>  
+            <% }) %>
+            
+        </ul>
+    </div>
+      
+    </h3>
+  </body>
+</html>
+
+<script src="/script.js"></script>

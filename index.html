@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>Client</title>
+  </head>
+  <body>
+    <h1>Fetch API</h1>
+
+    <form id="myForm">
+      <label>Name</label><input type="text" name="name" /> <label>Phone</label
+      ><input type="text" name="phone" />
+      <button type="submit" id="submit">Submit</button>
+    </form>
+    <button type="button" id="mybtn">Submit without form</button>
+  </body>
+</html>
+<script>
+  document.getElementById("myForm").onsubmit = e => {
+    e.preventDefault();
+
+    const url = "http://localhost:5000/sent-data"; // node server URL
+    console.log(e.target);
+    let usp = new URLSearchParams(); // initialized empty
+    for (const pair of new FormData(e.target)) {
+      // e.target contains form itself
+      // console.log(pair);     // this gives array of elements - i.e. one key val pair for name and another for phone
+      usp.append(pair[0], pair[1]); // pair[0] = element key i.e. name or phone, pair[1] = element val i.e. val given in i/p box
+    }
+
+    fetch(url, {
+      method: "post",
+      body: usp // data (don't stringify in form)
+    })
+      .then(res => res.json())
+      .then(res => {
+        console.log(res);
+      });
+  };
+</script>

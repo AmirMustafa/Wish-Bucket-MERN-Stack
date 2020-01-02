@@ -1,0 +1,23 @@
+{
+  "name": "wish-list",
+  "version": "1.0.0",
+  "description": "awesome app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app",
+    "client": "npm run start --prefix client",
+    "server": "nodemon app.js",
+    "dev": "concurrently \"npm run client\" \"npm run server\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
+  "author": "Amir Mustafa",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^5.0.2",
+    "cors": "^2.8.5",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.8.3",
+    "path": "^0.12.7"
+  }
+}
